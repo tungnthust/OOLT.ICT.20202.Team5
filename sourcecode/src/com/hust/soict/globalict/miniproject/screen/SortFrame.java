@@ -162,6 +162,7 @@ public class SortFrame extends JFrame {
 			bs = sortCanvas.getBufferStrategy();
 		}
 
+		
 		return bs;
 	}
 }

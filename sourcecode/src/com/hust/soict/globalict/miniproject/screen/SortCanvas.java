@@ -19,6 +19,7 @@ public class SortCanvas extends Canvas {
 		sortFrame.onDrawArray();
     }
 
+	
 
 	public void clear(Graphics g)
 	{
