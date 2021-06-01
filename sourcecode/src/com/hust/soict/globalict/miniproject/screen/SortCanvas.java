@@ -11,6 +11,7 @@ public class SortCanvas extends Canvas {
 	public SortCanvas(SortFrame sortFrame) {
 		this.sortFrame = sortFrame;
 	}
+	 
 	
 	public void paint(Graphics g)
     {

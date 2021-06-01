@@ -10,6 +10,7 @@ public class QuickSortVisualizer extends SortVisualizer{
 		super(sortCanvas, sortFrame, array);
 	}
 	
+	
 	/* QUICK SORT */
 	public void sort()
 	{
