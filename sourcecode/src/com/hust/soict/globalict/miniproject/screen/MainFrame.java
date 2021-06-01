@@ -66,6 +66,14 @@ public class MainFrame extends JFrame {
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Usage");
 		mntmNewMenuItem.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new HelpWindow();
+				
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
