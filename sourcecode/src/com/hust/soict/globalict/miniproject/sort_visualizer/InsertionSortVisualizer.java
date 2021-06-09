@@ -79,7 +79,6 @@ public class InsertionSortVisualizer extends SortVisualizer {
 
 	@Override
 	public void renderInstructionSet() {
-		super.renderInstructionSet();
 		
 		int x = PADDING;
 		int y = canvasHeight - 250 - PADDING;

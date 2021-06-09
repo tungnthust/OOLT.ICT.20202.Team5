@@ -51,6 +51,51 @@ public class SortFrame extends JFrame {
 		panel.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		panel.setBounds(30, 30, 953, 630);
 		
+		sortCanvas = new SortCanvas(this);
+		sortCanvas.setFocusable(false);
+		sortCanvas.setSize(800, 600);
+		setMinimumSize(new Dimension(1024, 768));
+		pack();
+		panel.add(sortCanvas);
+		
+		contentPane.add(panel);
+		if (sortAlgorithm.equals("Bubble Sort")) {
+			
+		}
+		switch (sortAlgorithm) {
+		case "Bubble Sort": {
+			sortVisualizer = new BubbleSortVisualizer(sortCanvas, this, array);			
+			break;
+		}
+		case "Quick Sort": {
+			sortVisualizer = new QuickSortVisualizer(sortCanvas, this, array);			
+			break;
+		}
+		case "Insertion Sort": {
+			sortVisualizer = new InsertionSortVisualizer(sortCanvas, this, array);			
+			break;
+		}
+		default:
+			break;
+		}
+		
+		JButton btnStart = new JButton("Start");
+		btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				threadSort = new Thread() {
+					@Override
+					public void run() {
+						sortVisualizer.sort();					
+					}
+				};
+				threadSort.start();
+			}
+		});
+		
+		btnStart.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnStart.setBounds(30, 680, 127, 34);
+		contentPane.add(btnStart);
+		
 		JButton btnNextStep = new JButton("Next Step");
 		btnNextStep.addActionListener(new ActionListener() {
 			
@@ -83,23 +128,6 @@ public class SortFrame extends JFrame {
 		btnPlay.setBounds(200, 680, 127, 34);
 		contentPane.add(btnPlay);
 		
-		JButton btnStart = new JButton("Start");
-		btnStart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				threadSort = new Thread() {
-					@Override
-					public void run() {
-						sortVisualizer.sort();					
-					}
-				};
-				threadSort.start();
-			}
-		});
-		
-		btnStart.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnStart.setBounds(30, 680, 127, 34);
-		contentPane.add(btnStart);
-		
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -112,34 +140,6 @@ public class SortFrame extends JFrame {
 		btnBack.setBounds(855, 680, 127, 34);
 		contentPane.add(btnBack);
 		
-		
-		sortCanvas = new SortCanvas(this);
-		sortCanvas.setFocusable(false);
-		sortCanvas.setSize(800, 600);
-		setMinimumSize(new Dimension(1024, 768));
-		pack();
-		panel.add(sortCanvas);
-		
-		contentPane.add(panel);
-		if (sortAlgorithm.equals("Bubble Sort")) {
-			
-		}
-		switch (sortAlgorithm) {
-		case "Bubble Sort": {
-			sortVisualizer = new BubbleSortVisualizer(sortCanvas, this, array);			
-			break;
-		}
-		case "Quick Sort": {
-			sortVisualizer = new QuickSortVisualizer(sortCanvas, this, array);			
-			break;
-		}
-		case "Insertion Sort": {
-			sortVisualizer = new InsertionSortVisualizer(sortCanvas, this, array);			
-			break;
-		}
-		default:
-			break;
-		}
 		setVisible(true);
 	
 	}

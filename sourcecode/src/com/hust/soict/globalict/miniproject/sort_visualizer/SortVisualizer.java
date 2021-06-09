@@ -9,7 +9,7 @@ import com.hust.soict.globalict.miniproject.entity.Instruction;
 import com.hust.soict.globalict.miniproject.screen.SortCanvas;
 import com.hust.soict.globalict.miniproject.screen.SortFrame;
 
-public class SortVisualizer {
+public abstract class SortVisualizer {
 	protected static final int PADDING = 20;
 	protected int[] array;
 	protected int size;
@@ -98,12 +98,9 @@ public class SortVisualizer {
 		g.dispose();
 	}
 
-	public void sort() {
-		
-	};
+	public abstract void sort();
 	
-	public void renderInstructionSet() {
-	}
+	public abstract void renderInstructionSet();
 	
 	
 	public void drawArray()
